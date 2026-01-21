@@ -1,5 +1,3 @@
-import "./app";
-
 import { Hono } from "hono";
 import { container } from "tsyringe";
 

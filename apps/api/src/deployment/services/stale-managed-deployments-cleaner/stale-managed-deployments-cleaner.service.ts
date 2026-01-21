@@ -2,7 +2,7 @@ import { LoggerService } from "@akashnetwork/logging";
 import { secondsInMinute } from "date-fns/constants";
 import { singleton } from "tsyringe";
 
-import { BillingConfig, InjectBillingConfig } from "@src/billing/providers";
+import { type BillingConfig, InjectBillingConfig } from "@src/billing/providers";
 import { UserWalletOutput, UserWalletRepository } from "@src/billing/repositories";
 import { ManagedUserWalletService, RpcMessageService } from "@src/billing/services";
 import { ManagedSignerService } from "@src/billing/services/managed-signer/managed-signer.service";

@@ -16,7 +16,7 @@ import { WithTransaction } from "@src/core";
 import { LoggerService } from "@src/core/providers/logging.provider";
 import { TransactionCsvRow } from "@src/types/transactions";
 import { UserOutput, UserRepository } from "@src/user/repositories/user/user.repository";
-import { PayingUser } from "../paying-user/paying-user";
+import type { PayingUser } from "../paying-user/paying-user";
 
 const logger = LoggerService.forContext("StripeService");
 

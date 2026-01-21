@@ -1,5 +1,3 @@
-import "./app";
-
 import { LoggerService } from "@akashnetwork/logging";
 import { HttpLoggerInterceptor } from "@akashnetwork/logging/hono";
 import { otel } from "@hono/otel";
@@ -9,7 +7,6 @@ import { cors } from "hono/cors";
 import assert from "http-assert";
 import { container } from "tsyringe";
 
-import packageJson from "../package.json";
 import { verifyEmailRouter } from "./auth/routes/verify-email/verify-email.router";
 import { AuthInterceptor } from "./auth/services/auth.interceptor";
 import { bidsRouter } from "./bid/routes/bids/bids.router";
@@ -161,7 +158,7 @@ appHono.route("/", notificationsApiProxy);
 appHono.route("/", healthzRouter);
 
 appHono.get("/status", c => {
-  const version = packageJson.version;
+  const version = process.env.APP_VERSION || "unknown";
   const memoryInBytes = process.memoryUsage();
   const memory = {
     rss: bytesToHumanReadableSize(memoryInBytes.rss),
