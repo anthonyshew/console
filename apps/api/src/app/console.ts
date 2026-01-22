@@ -11,8 +11,6 @@ import { chainDb } from "@src/db/dbConnection";
 import { TopUpDeploymentsController } from "@src/deployment/controllers/deployment/top-up-deployments.controller";
 import { GpuBotController } from "@src/deployment/controllers/gpu-bot/gpu-bot.controller";
 import { ProviderController } from "@src/provider/controllers/provider/provider.controller";
-import { TemplateGalleryService } from "@src/services/external/templates/template-gallery.service";
-import { dataFolderPath } from "@src/utils/constants";
 import { APP_INITIALIZER, ON_APP_START } from "../core/providers/app-initializer";
 
 const program = new Command();
@@ -67,28 +65,6 @@ program
   .action(async (options, command) => {
     await executeCliHandler(command.name(), async () => {
       await container.resolve(GpuBotController).createGpuBids();
-    });
-  });
-
-program
-  .command("build-akash-templates")
-  .description("Build Akash templates cache")
-  .action(async (_, command) => {
-    await executeCliHandler(command.name(), async () => {
-      console.log("Warming up Akash templates cache...");
-      const githubPAT = process.env.GITHUB_PAT;
-      if (!githubPAT) {
-        throw new Error("ERROR: requires GITHUB_PAT to be available in env variables");
-      }
-
-      const templateGalleryService = new TemplateGalleryService({
-        githubPAT,
-        dataFolderPath,
-        categoryProcessingConcurrency: 30,
-        templateSourceProcessingConcurrency: 30
-      });
-
-      await templateGalleryService.getTemplateGallery();
     });
   });
 

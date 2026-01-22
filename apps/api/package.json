@@ -11,7 +11,7 @@
   "main": "server.js",
   "scripts": {
     "build": "npm run build:app && npm run build:akash-templates",
-    "build:akash-templates": "node dist/console.js build-akash-templates",
+    "build:akash-templates": "tsup scripts/buildAkashTemplatesCache.ts -d dist/scripts && node dist/scripts/buildAkashTemplatesCache.js",
     "build:app": "NODE_ENV=production tsup",
     "build:container": "dc build api",
     "console": "npm run build:app && node dist/console.js",

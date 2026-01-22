@@ -12,8 +12,8 @@ async function bootstrap(rawAppConfig: RawAppConfig): Promise<void> {
   const port = parseInt(rawAppConfig.PORT?.toString() || "3080", 10) || 3080;
 
   if (INTERFACE === "all") {
-    const boostrapList = SUPPORTED_INTERFACES.map((interfaceName, index) => bootstrapInChildProcess({ PORT: String(port + index), INTERFACE: interfaceName }));
-    await Promise.all(boostrapList);
+    const bootstrapList = SUPPORTED_INTERFACES.map((interfaceName, index) => bootstrapInChildProcess({ PORT: String(port + index), INTERFACE: interfaceName }));
+    await Promise.all(bootstrapList);
     return;
   }
 
