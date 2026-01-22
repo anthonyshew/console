@@ -1,9 +1,9 @@
 import { MsgCreateBid as MsgCreateBidV4 } from "@akashnetwork/akash-api/akash/market/v1beta4";
 import { MsgCreateBid as MsgCreateBidV5 } from "@akashnetwork/chain-sdk/private-types/akash.v1beta5";
-import type { Registry } from "@cosmjs/proto-signing";
 import { addDays, minutesToSeconds } from "date-fns";
 import { inject, injectable } from "tsyringe";
 
+import type { Registry } from "@src/billing/providers/type-registry.provider";
 import { TYPE_REGISTRY } from "@src/billing/providers/type-registry.provider";
 import { AkashBlockRepository } from "@src/block/repositories/akash-block/akash-block.repository";
 import { Memoize } from "@src/caching/helpers";

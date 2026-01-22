@@ -42,6 +42,7 @@ const newAkashTypes: ReadonlyArray<[string, GeneratedType]> = [...Object.values(
 const registry = new Registry([...defaultRegistryTypes, ...akashTypes, ...newAkashTypes]);
 
 export const TYPE_REGISTRY: InjectionToken<Registry> = Symbol("TYPE_REGISTRY");
+export type { Registry };
 
 container.register(TYPE_REGISTRY, { useValue: registry });
 export const InjectTypeRegistry = () => inject(TYPE_REGISTRY);

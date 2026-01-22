@@ -5,10 +5,10 @@ import type * as v1beta1 from "@akashnetwork/akash-api/deprecated/akash/market/v
 import type * as v1beta5 from "@akashnetwork/chain-sdk/private-types/akash.v1beta5";
 import { Block, Message } from "@akashnetwork/database/dbSchemas";
 import { Transaction } from "@akashnetwork/database/dbSchemas/base";
-import type { Registry } from "@cosmjs/proto-signing";
 import { Op } from "sequelize";
 import { inject, singleton } from "tsyringe";
 
+import type { Registry } from "@src/billing/providers/type-registry.provider";
 import { TYPE_REGISTRY } from "@src/billing/providers/type-registry.provider";
 import { decodeMsg } from "@src/utils/protobuf";
 

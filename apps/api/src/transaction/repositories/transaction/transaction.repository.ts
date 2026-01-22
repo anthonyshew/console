@@ -1,10 +1,10 @@
 import { AkashBlock as Block, AkashMessage as Message } from "@akashnetwork/database/dbSchemas/akash";
 import { AddressReference, Transaction } from "@akashnetwork/database/dbSchemas/base";
-import type { Registry } from "@cosmjs/proto-signing";
 import { QueryTypes } from "sequelize";
 import { inject, singleton } from "tsyringe";
 
 import { GetAddressTransactionsParams, GetAddressTransactionsResponse } from "@src/address/http-schemas/address.schema";
+import type { Registry } from "@src/billing/providers/type-registry.provider";
 import { TYPE_REGISTRY } from "@src/billing/providers/type-registry.provider";
 import { chainDb } from "@src/db/dbConnection";
 import { GetTransactionByHashResponse, ListTransactionsResponse } from "@src/transaction/http-schemas/transaction.schema";
